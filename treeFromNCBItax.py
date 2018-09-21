@@ -44,4 +44,4 @@ for i in range(len(leaves)):
 
 # write newick
 with open(args.output, 'w') as treeFile:
-    treeFile.write(tree.write(format=9))
+    treeFile.write(tree.write(format=9).replace(" ","_"))
