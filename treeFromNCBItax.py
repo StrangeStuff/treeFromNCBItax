@@ -1,7 +1,6 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import argparse, itertools, sys
 from ete3 import NCBITaxa
-from ete3 import PhyloTree
 
 # Parse arguments
 parser = argparse.ArgumentParser()
@@ -23,8 +22,9 @@ try:
         listTaxa = [x.strip() for x in listTaxa]
         listTaxa = [x.split(" ") for x in listTaxa]
         listTaxa = list(set(itertools.chain(*listTaxa)))
+        listTaxa = [x.replace("_", " ") for x in listTaxa]
 except FileNotFoundError:
-    print "File does not exist"
+    print("File does not exist")
     sys.exit(1)
 
 # Retrieve TaxId from species names
